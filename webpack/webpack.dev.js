@@ -1,5 +1,6 @@
-const webpack = require('webpack');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpack = require('webpack')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'development',
@@ -13,5 +14,8 @@ module.exports = {
       'process.env.name': JSON.stringify('Vishwas'),
     }),
     new ReactRefreshWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css',
+    }),
   ],
-};
+}

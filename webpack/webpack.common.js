@@ -1,11 +1,26 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: {
+    app: path.resolve(__dirname, '..', './src/index.tsx'),
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendors',
+          test: /node_modules/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -22,6 +37,12 @@ module.exports = {
         test: /\.s?css$/,
         use: [
           'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
           {
             loader: 'css-loader',
             options: { sourceMap: true },
@@ -44,16 +65,23 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
+        generator: {
+          emit: false,
+        },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext][query]',
+        },
       },
     ],
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
+    filename: 'js/[name].[fullhash].js',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -62,8 +90,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-        { from: `${PATHS.src}/static`, to: `${PATHS.assets}static` },
+        { from: 'src/assets/img', to: 'assets/img' },
+        { from: 'src/assets/static', to: 'assets/static' },
       ],
     }),
   ],
