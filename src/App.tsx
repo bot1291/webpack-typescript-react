@@ -1,7 +1,7 @@
 import './styles.scss'
 import image from './1who_let.jpg'
 import { ClickCounter } from './ClickCounter'
-const maslo = 0
+const maslo =  432
 export const App = () => {
   return (
     <>
