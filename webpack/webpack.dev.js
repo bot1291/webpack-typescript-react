@@ -15,7 +15,7 @@ module.exports = {
     }),
     new ReactRefreshWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].css',
+      filename: 'assets/css/styles.css',
     }),
   ],
 }

@@ -9,7 +9,7 @@ module.exports = {
       'process.env.name': JSON.stringify('Codevolution'),
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[contenthash].css',
+      filename: 'assets/css/styles.[contenthash].css',
     }),
   ],
 }
