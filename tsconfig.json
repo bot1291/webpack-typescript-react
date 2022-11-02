@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "ESNext",
+    "target": "ES6",
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "lib": ["DOM", "ESNext"],
+    "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
     "jsx": "react-jsx",
     "noEmit": true,
     "isolatedModules": true,
@@ -11,9 +11,8 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
-    // "allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
-    // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
+    "resolveJsonModule": true,
+    "inlineSourceMap": true
   },
   "include": ["src/**/*"]
 }
