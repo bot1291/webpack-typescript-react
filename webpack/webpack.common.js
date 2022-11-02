@@ -11,6 +11,7 @@ module.exports = {
 		extensions: ['.tsx', '.ts', '.js'],
 	},
 	optimization: {
+		moduleIds: 'deterministic',
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
