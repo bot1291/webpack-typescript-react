@@ -4,7 +4,9 @@ export const ClickCounter = () => {
     const [count, setCount] = useState(0);
     return (
         <div>
-            <button onClick={() => setCount((c) => c + 1)}>
+            <button
+                onClick={() => setCount((c) => c + 1)}
+                onMouseDown={() => setCount((c) => c + 1)}>
                 Count - {count}
             </button>
         </div>

@@ -40,6 +40,7 @@ module.exports = {
                 printWidth: 80,
                 tabWidth: 4,
                 endOfLine: 'auto',
+                bracketSameLine: true,
             },
         ],
     },
