@@ -4,7 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
-    "jsx": "react-jsx",
+    "jsx": "react",
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -12,7 +12,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "inlineSourceMap": true
+    "strictPropertyInitialization": false,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
 }
