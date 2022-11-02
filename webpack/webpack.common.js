@@ -80,7 +80,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, '..', './build'),
-		filename: 'js/[name].[fullhash].js',
+		filename: 'js/[name].[contenthash].js',
 		clean: true,
 	},
 	plugins: [
