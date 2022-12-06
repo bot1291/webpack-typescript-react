@@ -1,1 +1,1 @@
-Production version - https://webpack.yoocreative.ru/
+
