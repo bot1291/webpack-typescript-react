@@ -1,4 +1,4 @@
-import { ClickCounter } from './ClickCounter';
+import { ClickCounter } from './components';
 
 export const App = () => {
 	return (

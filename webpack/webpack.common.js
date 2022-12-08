@@ -2,13 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'prod';
 
 module.exports = {
 	entry: {
 		app: path.resolve(__dirname, '..', './src/index.tsx'),
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
+		extensions: ['.tsx', '.ts', '.js', '.scss'],
 	},
 	optimization: {
 		moduleIds: 'deterministic',
@@ -35,23 +36,20 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.s?css$/,
+				test: /\.module\.s(a|c)ss$/,
 				use: [
-					'style-loader',
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							esModule: false,
-						},
-					},
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
-						options: { sourceMap: true },
+						options: {
+							sourceMap: devMode,
+							modules: true,
+						},
 					},
 					{
 						loader: 'postcss-loader',
 						options: {
-							sourceMap: true,
+							sourceMap: devMode,
 							postcssOptions: {
 								config: `./postcss.config.js`,
 							},
@@ -59,7 +57,31 @@ module.exports = {
 					},
 					{
 						loader: 'sass-loader',
-						options: { sourceMap: true },
+						options: { sourceMap: devMode },
+					},
+				],
+			},
+			{
+				test: /\.s(a|c)ss$/,
+				exclude: /\.module.(s(a|c)ss)$/,
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: { sourceMap: devMode },
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: devMode,
+							postcssOptions: {
+								config: `./postcss.config.js`,
+							},
+						},
+					},
+					{
+						loader: 'sass-loader',
+						options: { sourceMap: devMode },
 					},
 				],
 			},
@@ -85,6 +107,14 @@ module.exports = {
 		clean: true,
 	},
 	plugins: [
+		new MiniCssExtractPlugin({
+			filename: devMode
+				? 'assets/css/[name].css'
+				: 'assets/css/[name].[contenthash].css',
+			chunkFilename: devMode
+				? 'assets/css/[id].css'
+				: 'assets/css/[id].[contenthash].css',
+		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, '..', './src/index.html'),
 			inject: 'body',

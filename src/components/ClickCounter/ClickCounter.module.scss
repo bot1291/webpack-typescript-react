@@ -1,0 +1,11 @@
+.test {
+	width: 100px;
+	display: grid;
+
+	.maslo {
+		color: red;
+		font-size: 1rem;
+		display: flex;
+		gap: 10px;
+	}
+}
