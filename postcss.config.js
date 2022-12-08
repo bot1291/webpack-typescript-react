@@ -5,7 +5,7 @@ module.exports = {
 		}),
 		require('autoprefixer'),
 		require('postcss-sort-media-queries')({
-			sort: 'desktop-first',
+			sort: 'mobile-first',
 		}),
 		require('cssnano')({
 			preset: [
