@@ -31,19 +31,5 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'prettier/prettier': [
-			'error',
-			{
-				semi: true,
-				trailingComma: 'es5',
-				singleQuote: true,
-				printWidth: 80,
-				tabWidth: 4,
-				endOfLine: 'auto',
-				bracketSameLine: true,
-				arrowParens: 'avoid',
-				useTabs: true,
-			},
-		],
 	},
 };
