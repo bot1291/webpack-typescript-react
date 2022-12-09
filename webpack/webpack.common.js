@@ -43,7 +43,12 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							sourceMap: devMode,
-							modules: true,
+							modules: {
+								auto: true,
+								localIdentName: devMode
+									? '[folder]__[local]__[hash:base64:5]'
+									: '[hash:base64]',
+							},
 						},
 					},
 					{
