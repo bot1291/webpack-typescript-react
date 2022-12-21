@@ -1,0 +1,13 @@
+@font-face {
+	font-weight: 900;
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	src: url('./assets/fonts/ProximaNova/ProximaNova-Black.eot');
+	src: local('./assets/fonts/ProximaNova/Proxima Nova Black'),
+		local('ProximaNova-Black'),
+		url('./assets/fonts/ProximaNova/ProximaNova-Black.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/ProximaNova/ProximaNova-Black.woff') format('woff'),
+		url('./assets/fonts/ProximaNova/ProximaNova-Black.ttf')
+			format('truetype');
+}
