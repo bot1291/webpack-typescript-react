@@ -6,3 +6,7 @@ import cn from 'classnames';
 export const Sample: FC<SampleProps> = ({ className, ...props }) => {
 	return <div className={cn(className, styles.sample)} {...props}></div>;
 };
+
+export const maslo = (number: number): number => {
+	return number * number;
+};

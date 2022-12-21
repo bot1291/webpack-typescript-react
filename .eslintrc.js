@@ -1,4 +1,5 @@
 module.exports = {
+	plugins: ['jest-dom', 'testing-library'],
 	root: true,
 	env: {
 		jest: true,
@@ -15,6 +16,8 @@ module.exports = {
 	},
 	extends: [
 		'eslint:recommended',
+		'plugin:testing-library/react',
+		'plugin:jest-dom/recommended',
 		'plugin:react/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:@typescript-eslint/recommended',
@@ -41,5 +44,13 @@ module.exports = {
 		'jsx-a11y/no-noninteractive-element-interactions': 'off',
 		'@typescript-eslint/no-empty-interface': 'off',
 		'@typescript-eslint/ban-types': 'error',
+		'jest-dom/prefer-checked': 'error',
+		'jest-dom/prefer-enabled-disabled': 'error',
+		'jest-dom/prefer-required': 'error',
+		'jest-dom/prefer-to-have-attribute': 'error',
+		'testing-library/await-async-query': 'error',
+		'testing-library/no-await-sync-query': 'error',
+		'testing-library/no-debugging-utils': 'warn',
+		'testing-library/no-dom-import': 'off',
 	},
 };
