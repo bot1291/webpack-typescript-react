@@ -1,5 +1,5 @@
 module.exports = {
-	plugins: ['jest-dom', 'testing-library'],
+	plugins: ['import', '@typescript-eslint', 'jest-dom', 'testing-library'],
 	root: true,
 	env: {
 		jest: true,
@@ -12,6 +12,9 @@ module.exports = {
 	settings: {
 		react: {
 			version: 'detect',
+		},
+		'import/parsers': {
+			'@typescript-eslint/parser': ['.ts', '.tsx'],
 		},
 	},
 	extends: [
@@ -39,6 +42,7 @@ module.exports = {
 		'react/prop-types': 'off',
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
+		'import/extensions': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'error',
 		'jsx-a11y/click-events-have-key-events': 'off',
 		'jsx-a11y/no-noninteractive-element-interactions': 'off',
